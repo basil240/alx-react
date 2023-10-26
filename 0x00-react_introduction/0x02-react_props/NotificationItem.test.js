@@ -36,3 +36,24 @@ it('renders correct HTML', () => {
     const wrapper = shallow(<Notifications notifications={[]} />);
     expect(wrapper.find(NotificationItem)).toHaveLength(0);
   });
+
+  describe('With listNotifications', () => {
+    const listNotifications = [
+      // Add notification objects here
+    ];
+  
+    it('renders correctly', () => {
+      const wrapper = shallow(<Notifications listNotifications={listNotifications} />);
+      expect(wrapper.exists()).toBe(true);
+    });
+  
+    it('renders the correct number of NotificationItem components', () => {
+      const wrapper = shallow(<Notifications listNotifications={listNotifications} />);
+      expect(wrapper.find(NotificationItem)).toHaveLength(listNotifications.length);
+    });
+  });
+  
+  it('displays "No new notification for now" when listNotifications is empty', () => {
+    const wrapper = shallow(<Notifications />);
+    expect(wrapper.text()).toContain('No new notification for now');
+  });
