@@ -1,0 +1,5 @@
+it('App renders a div with the class App-footer', () => {
+  const wrapper = shallow(<App />);
+  const appFooter = wrapper.find('.App-footer');
+  expect(appFooter.exists()).toBe(true);
+});

@@ -1,0 +1,8 @@
+});
+
+it('App renders a div with the class App-body', () => {
+  const wrapper = shallow(<App />);
+  const appBody = wrapper.find('.App-body');
+  expect(appBody.exists()).toBe(true);
+  
+});
